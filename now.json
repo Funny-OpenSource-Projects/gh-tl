@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "gh-timeline-embed",
+    "builds": [
+        { "src": "/api/*.py", "use": "@now/python" , "config": { "maxLambdaSize": "10mb" } }
+    ],    
+    "routes": [
+        { "src": "/svg", "dest": "/api/index.py" }
+    ]
+}
