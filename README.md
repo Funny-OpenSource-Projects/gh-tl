@@ -17,6 +17,29 @@ Result
 
 ### Options
 
-**Color**
+**Zoom**
 
-`color=#
+### 1x ###
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=1"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=1)
+
+### 0.5x ###
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5)
+
+### 0.25x ###
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.25"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.25)
+
