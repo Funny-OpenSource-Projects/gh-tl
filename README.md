@@ -3,7 +3,7 @@ Github Timeline Embedder
 
 <br/>
 
-### How to use?
+## How to use?
 
 Just use it as an image tag
 

@@ -2,7 +2,7 @@ from http.server import BaseHTTPRequestHandler
 import requests
 import re
 import os
-import color_utils
+import colorsys
 
 class handler(BaseHTTPRequestHandler):
     def get_svg_template(self):
@@ -25,15 +25,15 @@ class handler(BaseHTTPRequestHandler):
                 </svg>
                 """
     
-    def lighten_color(self, color, amount=0.5):
-        import matplotlib.colors as mc
-        import colorsys
-        try:
-            c = mc.cnames[color]
-        except:
-            c = color
-        c = colorsys.rgb_to_hls(*mc.to_rgb(c))
-        return colorsys.hls_to_rgb(c[0], 1 - amount * (1 - c[1]), c[2])
+    def process_color(self, color, amount=0.5):
+        color = color.lstrip("#") 
+        r, g, b = tuple([int(color[i:i + 2], 16) for i in range(0, len(color), 2)])
+        r, g, b = [x/255.0 for x in (r, g, b)] 
+        h, l, s = colorsys.rgb_to_hls(r, g, b)
+        h, l, s = h, 1 - amount, s 
+        r, g, b = colorsys.hls_to_rgb(h, l, s)
+        r, g, b = [int(x*255.0) for x in (r, g, b)] 
+        return ''.join(["%0.2X" % c for c in (r,g, b)])
 
     def do_GET(self):
 
@@ -49,7 +49,6 @@ class handler(BaseHTTPRequestHandler):
 
         color_param_pattern = re.compile(r'color\=([^\=\&]+)') 
         color_match = zoom_param_pattern.search(self.path)
-       
 
         response = requests.get(base_url + username)
 
@@ -66,10 +65,10 @@ class handler(BaseHTTPRequestHandler):
 
         if color_match is not None:
             color = color_match.group(1)
-            message = re.sub(r'C6E48B', process_color(color, 0.2), message)
-            message = re.sub(r'7BC96F', process_color(color, 0.4), message)
-            message = re.sub(r'239A3B', process_color(color, 0.6), message)
-            message = re.sub(r'196127', process_color(color, 0.8), message)
+            message = re.sub(r'C6E48B', self.process_color(color, 0.2), message)
+            message = re.sub(r'7BC96F', self.process_color(color, 0.4), message)
+            message = re.sub(r'239A3B', self.process_color(color, 0.6), message)
+            message = re.sub(r'196127', self.process_color(color, 0.8), message)
 
         self.send_response(200)
         self.send_header("Accept-Ranges","bytes")
