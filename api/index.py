@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler
 import requests
 import re
 import os
+import color_utils
 
 class handler(BaseHTTPRequestHandler):
     def get_svg_template(self):
@@ -23,6 +24,16 @@ class handler(BaseHTTPRequestHandler):
                     [CONTENT]
                 </svg>
                 """
+    
+    def lighten_color(self, color, amount=0.5):
+        import matplotlib.colors as mc
+        import colorsys
+        try:
+            c = mc.cnames[color]
+        except:
+            c = color
+        c = colorsys.rgb_to_hls(*mc.to_rgb(c))
+        return colorsys.hls_to_rgb(c[0], 1 - amount * (1 - c[1]), c[2])
 
     def do_GET(self):
 
@@ -36,6 +47,10 @@ class handler(BaseHTTPRequestHandler):
         except:
             zoom = 1
 
+        color_param_pattern = re.compile(r'color\=([^\=\&]+)') 
+        color_match = zoom_param_pattern.search(self.path)
+       
+
         response = requests.get(base_url + username)
 
         svg_timeline_pattern = re.compile(r'\<svg[^>]*js\-calendar[^>]*\>(.*?)\<\/svg\>', re.MULTILINE | re.DOTALL)
@@ -48,6 +63,13 @@ class handler(BaseHTTPRequestHandler):
         message = re.sub(r'\[CONTENT\]', svg.group(1), message)
         message = re.sub(r'\[WIDTH\]', resized_width, message)
         message = re.sub(r'\[HEIGHT\]', resized_height, message)
+
+        if color_match is not None:
+            color = color_match.group(1)
+            message = re.sub(r'C6E48B', process_color(color, 0.2), message)
+            message = re.sub(r'7BC96F', process_color(color, 0.4), message)
+            message = re.sub(r'239A3B', process_color(color, 0.6), message)
+            message = re.sub(r'196127', process_color(color, 0.8), message)
 
         self.send_response(200)
         self.send_header("Accept-Ranges","bytes")
