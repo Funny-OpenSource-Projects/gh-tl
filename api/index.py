@@ -64,7 +64,7 @@ class handler(BaseHTTPRequestHandler):
         message = re.sub(r'\[WIDTH\]', resized_width, message)
         message = re.sub(r'\[HEIGHT\]', resized_height, message)
 
-        if (color is not None):
+        if (color_match is not None):
             color = color_match.group(1)
             message = re.sub(r'c6e48b', self.process_color(color, 0.2), message)
             message = re.sub(r'7bc96f', self.process_color(color, 0.4), message)
