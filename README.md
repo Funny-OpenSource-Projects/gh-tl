@@ -1,5 +1,7 @@
 ## GH-TL
-**Github Timeline Embedder**
+Github Timeline Embedder
+
+<br/>
 
 ### How it works?
 
@@ -13,3 +15,8 @@ Result
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta)
 
+### Options
+
+**Color**
+
+`color=#
