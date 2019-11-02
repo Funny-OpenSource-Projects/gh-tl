@@ -48,7 +48,7 @@ class handler(BaseHTTPRequestHandler):
             zoom = 1
 
         color_param_pattern = re.compile(r'color\=([^\=\&]+)') 
-        color_match = zoom_param_pattern.search(self.path)
+        color_match = color_param_pattern.search(self.path)
 
         response = requests.get(base_url + username)
 
@@ -58,16 +58,17 @@ class handler(BaseHTTPRequestHandler):
         resized_width = str(722 * float(zoom))
         resized_height = str(112 * float(zoom))
 
+        
         message = str(self.get_svg_template())
         message = re.sub(r'\[CONTENT\]', svg.group(1), message)
         message = re.sub(r'\[WIDTH\]', resized_width, message)
         message = re.sub(r'\[HEIGHT\]', resized_height, message)
 
-        if color_match is not None:
+        if (color is not None):
             color = color_match.group(1)
-            message = re.sub(r'C6E48B', self.process_color(color, 0.2), message)
-            message = re.sub(r'7BC96F', self.process_color(color, 0.4), message)
-            message = re.sub(r'239A3B', self.process_color(color, 0.6), message)
+            message = re.sub(r'c6e48b', self.process_color(color, 0.2), message)
+            message = re.sub(r'7bc96f', self.process_color(color, 0.4), message)
+            message = re.sub(r'239a3b', self.process_color(color, 0.6), message)
             message = re.sub(r'196127', self.process_color(color, 0.8), message)
 
         self.send_response(200)
@@ -79,4 +80,4 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
 
         self.wfile.write(str(message).encode())
-        return
+        return  

@@ -19,7 +19,7 @@ Result
 
 ### Zoom ###
 
-#### 0.5x ###
+#### 0.5x ####
 
 ```html
 <img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5"/>
@@ -27,13 +27,32 @@ Result
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5)
 
-#### 0.25x ###
+#### 0.25x ####
 
 ```html
 <img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.25"/>
 ```
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.25)
+
+### Color ###
+
+#### Blue (#38507a) ####
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=38507a"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&color=38507a)
+
+
+#### Red (#dd4b3c) ####
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=dd4b3c"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&color=dd4b3c)
 
 
 ### How it works?
