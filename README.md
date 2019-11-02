@@ -15,11 +15,11 @@ Result
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta)
 
-### Options
+## Options
 
-**Zoom**
+### Zoom ###
 
-### 0.5x ###
+#### 0.5x ###
 
 ```html
 <img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5"/>
@@ -27,7 +27,7 @@ Result
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5)
 
-### 0.25x ###
+#### 0.25x ###
 
 ```html
 <img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.25"/>
