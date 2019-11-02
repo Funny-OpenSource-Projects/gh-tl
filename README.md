@@ -19,14 +19,6 @@ Result
 
 **Zoom**
 
-### 1x ###
-
-```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=1"/>
-```
-
-![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=1)
-
 ### 0.5x ###
 
 ```html
