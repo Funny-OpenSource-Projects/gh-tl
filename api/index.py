@@ -34,50 +34,43 @@ class handler(BaseHTTPRequestHandler):
         r, g, b = colorsys.hls_to_rgb(h, l, s)
         r, g, b = [int(x*255.0) for x in (r, g, b)] 
         return ''.join(["%0.2X" % c for c in (r,g, b)])
+    
+    def get_param(self, name, path, default=None):
+        pattern = re.compile(r""+name+"\=([^\=\&]+)")
+        match = pattern.search(path)
+        if match is not None:
+            return match.group(1)
+        else:
+            return default
 
     def do_GET(self):
 
-        base_url = 'https://www.github.com/'
-        user_param_pattern = re.compile(r'user\=([^\=\&]+)') 
-        username = user_param_pattern.search(self.path).group(1)
+        username = self.get_param('user', self.path)
+        zoom     = float(self.get_param('zoom', self.path, default=1))
+        color    = self.get_param('color', self.path)
 
-        zoom_param_pattern = re.compile(r'zoom\=([^\=\&]+)') 
-        try:
-            zoom = zoom_param_pattern.search(self.path).group(1)
-        except:
-            zoom = 1
+        response = requests.get(f'https://www.github.com/{username}')
+        res_width, res_height = str(722 * zoom), str(112 * zoom)
 
-        color_param_pattern = re.compile(r'color\=([^\=\&]+)') 
-        color_match = color_param_pattern.search(self.path)
-
-        response = requests.get(base_url + username)
-
-        svg_timeline_pattern = re.compile(r'\<svg[^>]*js\-calendar[^>]*\>(.*?)\<\/svg\>', re.MULTILINE | re.DOTALL)
-        svg = svg_timeline_pattern.search(response.text)
-
-        resized_width = str(722 * float(zoom))
-        resized_height = str(112 * float(zoom))
-
-        
+        svg_pattern = re.compile(r'\<svg[^>]*js\-calendar[^>]*\>(.*?)\<\/svg\>', re.MULTILINE | re.DOTALL)
+        svg = svg_pattern.search(response.text)
         message = str(self.get_svg_template())
         message = re.sub(r'\[CONTENT\]', svg.group(1), message)
-        message = re.sub(r'\[WIDTH\]', resized_width, message)
-        message = re.sub(r'\[HEIGHT\]', resized_height, message)
+        message = re.sub(r'\[WIDTH\]', res_width, message)
+        message = re.sub(r'\[HEIGHT\]', res_height, message)
 
-        if (color_match is not None):
-            color = color_match.group(1)
+        if (color is not None):
             message = re.sub(r'c6e48b', self.process_color(color, 0.2), message)
             message = re.sub(r'7bc96f', self.process_color(color, 0.4), message)
             message = re.sub(r'239a3b', self.process_color(color, 0.6), message)
             message = re.sub(r'196127', self.process_color(color, 0.8), message)
 
         self.send_response(200)
-        self.send_header("Accept-Ranges","bytes")
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header("Content-Disposition","attachment")
-        self.send_header("Content-Length",len(message))
-        self.send_header('Content-type','image/svg+xml')
+        self.send_header("Accept-Ranges", "bytes")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Disposition", "attachment")
+        self.send_header("Content-Length", len(message))
+        self.send_header("Content-type", "image/svg+xml")
         self.end_headers()
-
         self.wfile.write(str(message).encode())
         return  
