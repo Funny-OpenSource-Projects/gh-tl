@@ -11,9 +11,6 @@ Just use it as an image tag
     <img src="images/image@2x.png" width="60%"/>
 </p>
 
-```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta"/>
-```
 
 Result
 
