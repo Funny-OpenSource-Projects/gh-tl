@@ -56,6 +56,10 @@ Result
 
 #### Pink (#ff4081)
 
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081"/>
+```
+
 ![](https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081)
 
 ### How it works?
