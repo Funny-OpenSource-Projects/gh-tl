@@ -58,6 +58,23 @@ Result
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta&color=dd4b3c)
 
+#### Pink (#ff4081)
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081)
+
+#### Purple (#8e44ad)
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=8e44ad"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&color=8e44ad)
+
+<br/>
 
 ### How it works?
 
