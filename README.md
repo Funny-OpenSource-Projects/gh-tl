@@ -54,6 +54,9 @@ Result
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta&color=dd4b3c)
 
+#### Pink (#ff4081)
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081)
 
 ### How it works?
 
