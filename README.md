@@ -62,6 +62,16 @@ Result
 
 ![](https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081)
 
+#### Purple (#8e44ad)
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=8e44ad"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&color=8e44ad)
+
+<br/>
+
 ### How it works?
 
 1. Receive a http request with the github username whose timeline want to embed
