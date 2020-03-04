@@ -8,7 +8,7 @@ Github Timeline Embedder
 Just use it as an image tag
 
 <p align="center">
-    <img src="images/image_gt-tl.png" />
+    <img src="images/image_gt-tl.png" width="50%"/>
 </p>
 
 ```html
