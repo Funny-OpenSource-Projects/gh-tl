@@ -7,7 +7,7 @@ Github Timeline Embedder
 
 Just use it as an image tag
 
-<img src="images/image@2x.png" width="60%"/> 
+<img src="images/image_snippet.png" width="50%"/> 
 
 
 Result
