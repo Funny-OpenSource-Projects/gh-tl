@@ -7,6 +7,10 @@ Github Timeline Embedder
 
 Just use it as an image tag
 
+<p align="center">
+    <img src="images/image_gt-tl.png" />
+</p>
+
 ```html
 <img src="https://gh-tl.now.sh/svg?user=joelibaceta"/>
 ```
