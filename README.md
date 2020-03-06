@@ -16,6 +16,27 @@ Result
 
 ## Options
 
+
+### Shape ###
+
+#### Circle ####
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&shape=circle"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&shape=circle)
+
+### Dark ###
+
+#### true ####
+
+```html
+<img src="https://gh-tl.now.sh/svg?user=joelibaceta&dark=true"/>
+```
+
+![](https://gh-tl.now.sh/svg?user=joelibaceta&dark=true)
+
 ### Zoom ###
 
 #### 0.5x ####

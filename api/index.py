@@ -28,9 +28,9 @@ class handler(BaseHTTPRequestHandler):
     def process_color(self, color, amount=0.5):
         color = color.lstrip("#") 
         r, g, b = tuple([int(color[i:i + 2], 16) for i in range(0, len(color), 2)])
-        r, g, b = [x/255.0 for x in (r, g, b)] 
+        r, g, b = [x/255.0 for x in (r, g, b)]
         h, l, s = colorsys.rgb_to_hls(r, g, b)
-        h, l, s = h, 1 - amount, s 
+        h, l, s = h, 1 - amount, s
         r, g, b = colorsys.hls_to_rgb(h, l, s)
         r, g, b = [int(x*255.0) for x in (r, g, b)] 
         return ''.join(["%0.2X" % c for c in (r,g, b)])
@@ -48,6 +48,8 @@ class handler(BaseHTTPRequestHandler):
         username = self.get_param('user', self.path)
         zoom     = float(self.get_param('zoom', self.path, default=1))
         color    = self.get_param('color', self.path)
+        shape    = self.get_param('shape', self.path)
+        dark     = self.get_param('dark', self.path, 'false').lower() == 'true'
 
         response = requests.get(f'https://www.github.com/{username}')
         res_width, res_height = str(722 * zoom), str(112 * zoom)
@@ -58,6 +60,17 @@ class handler(BaseHTTPRequestHandler):
         message = re.sub(r'\[CONTENT\]', svg.group(1), message)
         message = re.sub(r'\[WIDTH\]', res_width, message)
         message = re.sub(r'\[HEIGHT\]', res_height, message)
+
+        if (shape is not None):
+            if (shape == 'circle'):
+                message = re.sub(r'<rect', fr'<rect rx="{res_width}" ry="{res_height}"', message)
+
+        if (dark):
+            if (color is None):
+                color = '7bc96f'
+
+            message = re.sub(r'<text', r'<text fill="#fff"', message)
+            message = re.sub(r'ebedf0', self.process_color(color, 0.143, dark), message)
 
         if (color is not None):
             message = re.sub(r'c6e48b', self.process_color(color, 0.2), message)
