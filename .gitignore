@@ -1,3 +1,4 @@
 .env
 api/__pycache__
 .now
+.vscode
