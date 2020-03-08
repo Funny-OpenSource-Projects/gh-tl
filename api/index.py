@@ -70,7 +70,7 @@ class handler(BaseHTTPRequestHandler):
                 color = '7bc96f'
 
             message = re.sub(r'<text', r'<text fill="#fff"', message)
-            message = re.sub(r'ebedf0', self.process_color(color, 0.143, dark), message)
+            message = re.sub(r'ebedf0', self.process_color(color, 0.143), message)
 
         if (color is not None):
             message = re.sub(r'c6e48b', self.process_color(color, 0.2), message)
