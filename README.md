@@ -22,73 +22,73 @@ Result
 #### 0.5x ####
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&zoom=0.5"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.5)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&zoom=0.5)
 
 #### 0.25x ####
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.25"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&zoom=0.25"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&zoom=0.25)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&zoom=0.25)
 
 ### Shape ###
 
 #### Circle ####
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&shape=circle"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&shape=circle"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&shape=circle)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&shape=circle)
 
 ### Dark ###
 
 #### true ####
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&dark=true"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&dark=true"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&dark=true)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&dark=true)
 
 ### Color ###
 
 #### Blue (#38507a) ####
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=38507a"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&color=38507a"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&color=38507a)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&color=38507a)
 
 
 #### Red (#dd4b3c) ####
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=dd4b3c"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&color=dd4b3c"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&color=dd4b3c)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&color=dd4b3c)
 
 #### Pink (#ff4081)
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&color=FF4081"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&color=FF4081)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&color=FF4081)
 
 #### Purple (#8e44ad)
 
 ```html
-<img src="https://gh-tl.now.sh/svg?user=joelibaceta&color=8e44ad"/>
+<img src="https://ghtl.vercel.app/svg?user=joelibaceta&color=8e44ad"/>
 ```
 
-![](https://gh-tl.now.sh/svg?user=joelibaceta&color=8e44ad)
+![](https://ghtl.vercel.app/svg?user=joelibaceta&color=8e44ad)
 
 <br/>
 
