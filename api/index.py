@@ -73,13 +73,13 @@ class handler(BaseHTTPRequestHandler):
                 color = '7bc96f'
 
             message = re.sub(r'<text', r'<text fill="#fff"', message)
-            message = re.sub(r'data-level="0"', f"fill='{self.process_color(color, 0.143)}'", message)
+            message = re.sub('data-level="0"', f"fill='{self.process_color(color, 0.143)}'", message)
 
         if (color is not None):
-            message = re.sub(r'data-level="1"', f"fill='{self.process_color(color, 0.2)}'", message)
-            message = re.sub(r'data-level="2"', f"fill='{self.process_color(color, 0.4)}'", message)
-            message = re.sub(r'data-level="3"', f"fill='{self.process_color(color, 0.6)}'", message)
-            message = re.sub(r'data-level="4"', f"fill='{self.process_color(color, 0.8)}'", message)
+            message = re.sub('data-level="1"', f"fill='{self.process_color(color, 0.2)}'", message)
+            message = re.sub('data-level="2"', f"fill='{self.process_color(color, 0.4)}'", message)
+            message = re.sub('data-level="3"', f"fill='{self.process_color(color, 0.6)}'", message)
+            message = re.sub('data-level="4"', f"fill='{self.process_color(color, 0.8)}'", message)
 
         self.send_response(200)
         self.send_header("Accept-Ranges", "bytes")
